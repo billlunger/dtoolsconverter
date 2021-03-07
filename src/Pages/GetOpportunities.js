@@ -97,7 +97,7 @@ class Opportunities extends React.Component {
   }
 
   async componentDidMount() {
-    const url = "//lunger1.homeip.net:5000/api/opportunities";
+    const url = "https://lunger1.homeip.net:5000/api/opportunities";
     const getCreds = ""
     try{
       console.log('Trying to Get Opportunities')
