@@ -26,7 +26,7 @@ class Opportunities extends React.Component {
   };
 
   async listQuotes(sub) {
-    const url = `http://lunger1.homeip.net:5000/api/getOpps/${sub.id}`;
+    const url = `https://dtools.hopto.org/api/getOpps/${sub.id}`;
     const response = await fetch(url);
     const data = await response.json();
     this.setState({quotes: data,
@@ -54,11 +54,11 @@ class Opportunities extends React.Component {
     quoteName: quote.name,
     quote: quote.id,
   })
-    const url = `http://lunger1.homeip.net:5000/api/getQuote/${quote.id}`;
+    const url = `https://dtools.hopto.org/api/getQuote/${quote.id}`;
     const response = await fetch(url);
     const data = await response.json();
     this.setState({phases: data, down1Name: 'Download Signle Quote',
-    down1: `http://lunger1.homeip.net:5000/api/download/${this.state.client}-${this.state.quoteName}`,})
+    down1: `https://dtools.hopto.org/api/download/${this.state.client}-${this.state.quoteName}`,})
     console.log(data,'GetQuoteData');
     //console.log(this.state.down5Name)
     
@@ -75,16 +75,16 @@ class Opportunities extends React.Component {
     quoteName: quote.name,
     quote: quote.id,
   })
-    const url = `http://lunger1.homeip.net:5000/api/getPhases/${quote.id}`;
+    const url = `/api/getPhases/${quote.id}`;
     const response = await fetch(url);
     const data = await response.json();
     this.setState({phases: data,
-      down1: `http://localhost:5000/api/download/${this.state.client}-${this.state.quoteName}-${data[0]}`,
-      down2: `http://localhost:5000/api/download/${this.state.client}-${this.state.quoteName}-${data[1]}`,
-      down3: `http://localhost:5000/api/download/${this.state.client}-${this.state.quoteName}-${data[2]}`,
-      down4: `http://localhost:5000/api/download/${this.state.client}-${this.state.quoteName}-${data[3]}`,
-      down5: `http://localhost:5000/api/download/${this.state.client}-${this.state.quoteName}-${data[4]}`,
-      down6: `http://localhost:5000/api/download/${this.state.client}-${this.state.quoteName}-${data[6]}`,
+      down1: `https://dtools.hopto.org/api/download/${this.state.client}-${this.state.quoteName}-${data[0]}`,
+      down2: `https://dtools.hopto.org/api/download/${this.state.client}-${this.state.quoteName}-${data[1]}`,
+      down3: `https://dtools.hopto.org/api/download/${this.state.client}-${this.state.quoteName}-${data[2]}`,
+      down4: `https://dtools.hopto.org/api/download/${this.state.client}-${this.state.quoteName}-${data[3]}`,
+      down5: `https://dtools.hopto.org/api/download/${this.state.client}-${this.state.quoteName}-${data[4]}`,
+      down6: `https://dtools.hopto.org/api/download/${this.state.client}-${this.state.quoteName}-${data[6]}`,
       down1Name: data[0],
       down2Name: data[1],
       down3Name: data[2],
@@ -97,7 +97,7 @@ class Opportunities extends React.Component {
   }
 
   async componentDidMount() {
-    const url = "https://lunger1.homeip.net:5000/api/opportunities";
+    const url = "https://dtools.hopto.org/api/opportunities";
     const getCreds = ""
     try{
       console.log('Trying to Get Opportunities')
