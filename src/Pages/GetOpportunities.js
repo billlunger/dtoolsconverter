@@ -75,7 +75,7 @@ class Opportunities extends React.Component {
     quoteName: quote.name,
     quote: quote.id,
   })
-    const url = `/api/getPhases/${quote.id}`;
+    const url = `https://dtools.hopto.org/api/getPhases/${quote.id}`;
     const response = await fetch(url);
     const data = await response.json();
     this.setState({phases: data,
