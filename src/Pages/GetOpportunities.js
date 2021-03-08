@@ -57,8 +57,9 @@ class Opportunities extends React.Component {
     const url = `https://dtools.hopto.org/api/getQuote/${quote.id}`;
     const response = await fetch(url);
     const data = await response.json();
+    const qName = this.state.quoteName.replace(/[^a-zA-Z0-9-. ]/g,'-')
     this.setState({phases: data, down1Name: 'Download Signle Quote',
-    down1: `https://dtools.hopto.org/api/download/${this.state.client}-${this.state.quoteName}`,})
+    down1: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}`,})
     console.log(data,'GetQuoteData');
     //console.log(this.state.down5Name)
     
