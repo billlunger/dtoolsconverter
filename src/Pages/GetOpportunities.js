@@ -176,7 +176,7 @@ class Opportunities extends React.Component {
           )}
           </div>
 
-          <button onClick={this.componentDidMount.bind(this)} className='btn'>Load Quotes</button>
+          <button onClick={this.componentDidMount.bind(this)} className='btn-load'>Load Quotes</button>
           
         </div>
         )}

@@ -20,7 +20,7 @@ body {
   overflow: auto;
   min-height: 300px;
   border: 1px solid steelblue;
-  padding: 30px;
+  padding: 10px 30px;
   border-radius: 5px;
 }
 
@@ -41,12 +41,30 @@ body {
   border: none;
   width: 200px;
   padding: 5px 10px;
-  margin: 5px;
+  margin: 5px auto;
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
   font-size: 15px;
   font-family:  'Poppins', sans-serif;
+  
+}
+.btn-load {
+  display: grid;
+  text-align: center;
+  background: #000;
+  color: #fff;
+  border: none;
+  width: 200px;
+  padding: 5px 10px;
+  margin: 5px auto;
+  margin-top: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  font-family:  'Poppins', sans-serif;
+  
 }
 
 
@@ -59,11 +77,12 @@ body {
   display: flexbox;
   color:#000;
   background: #f4f4f4;
-  margin: 5px;
+  margin: 5px auto;
   text-align: left;
   padding: 10px 20px;
   cursor: pointer;
-  width: 400px;
+  border-radius: 10px;
+  
   justify-self: center;
   overflow: auto;
 }

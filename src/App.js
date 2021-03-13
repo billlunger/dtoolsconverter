@@ -11,7 +11,7 @@ function App (){
   return (
     <div className='container'>
         {!isAuthenticated ? 
-        (<><Login /></>):
+        (<><Login className='btn'/></>):
         (
         <>
         <Logout />
