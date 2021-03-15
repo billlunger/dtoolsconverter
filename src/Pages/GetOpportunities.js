@@ -57,7 +57,7 @@ class Opportunities extends React.Component {
     const url = `https://dtools.hopto.org/api/getQuote/${quote.id}`;
     const response = await fetch(url);
     const data = await response.json();
-    const qName = this.state.quoteName.replace(/[^a-zA-Z0-9-. ]/g,'-')
+    const qName = this.state.quoteName.replace(/[^a-zA-Z0-9-.,& ]/g,'-')
     this.setState({phases: data, down1Name: 'Download Signle Quote',
     down1: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}`,})
     console.log(data,'GetQuoteData');
@@ -79,13 +79,14 @@ class Opportunities extends React.Component {
     const url = `https://dtools.hopto.org/api/getPhases/${quote.id}`;
     const response = await fetch(url);
     const data = await response.json();
+    const qName = this.state.quoteName.replace(/[^a-zA-Z0-9-.,& ]/g,'-')
     this.setState({phases: data,
-      down1: `https://dtools.hopto.org/api/download/${this.state.client}-${this.state.quoteName}-${data[0]}`,
-      down2: `https://dtools.hopto.org/api/download/${this.state.client}-${this.state.quoteName}-${data[1]}`,
-      down3: `https://dtools.hopto.org/api/download/${this.state.client}-${this.state.quoteName}-${data[2]}`,
-      down4: `https://dtools.hopto.org/api/download/${this.state.client}-${this.state.quoteName}-${data[3]}`,
-      down5: `https://dtools.hopto.org/api/download/${this.state.client}-${this.state.quoteName}-${data[4]}`,
-      down6: `https://dtools.hopto.org/api/download/${this.state.client}-${this.state.quoteName}-${data[6]}`,
+      down1: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[0]}`,
+      down2: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[1]}`,
+      down3: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[2]}`,
+      down4: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[3]}`,
+      down5: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[4]}`,
+      down6: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[6]}`,
       down1Name: data[0],
       down2Name: data[1],
       down3Name: data[2],
