@@ -57,10 +57,11 @@ class Opportunities extends React.Component {
     const url = `https://dtools.hopto.org/api/getQuote/${quote.id}`;
     const response = await fetch(url);
     const data = await response.json();
+    console.log(data,'Single Quote');
     const qName = this.state.quoteName.replace(/[^a-zA-Z0-9-.,& ]/g,'-')
-    this.setState({phases: data, down1Name: 'Download Signle Quote',
-    down1: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}`,})
-    console.log(data,'GetQuoteData');
+    this.setState({down1Name: 'Download Signle Quote',
+    down1: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}(${data[0]}).csv`,})
+    //console.log(data,'GetQuoteData');
     //console.log(this.state.down5Name)
     
   }
@@ -81,18 +82,18 @@ class Opportunities extends React.Component {
     const data = await response.json();
     const qName = this.state.quoteName.replace(/[^a-zA-Z0-9-.,& ]/g,'-')
     this.setState({phases: data,
-      down1: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[0]}`,
-      down2: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[1]}`,
-      down3: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[2]}`,
-      down4: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[3]}`,
-      down5: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[4]}`,
-      down6: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[6]}`,
-      down1Name: data[0],
-      down2Name: data[1],
-      down3Name: data[2],
-      down4Name: data[3],
-      down5Name: data[4],
-      down6Name: data[5],
+      down1: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[1]}(${data[0]}).csv`,
+      down2: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[2]}(${data[0]}).csv`,
+      down3: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[3]}(${data[0]}).csv`,
+      down4: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[4]}(${data[0]}).csv`,
+      down5: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[5]}(${data[0]}).csv`,
+      down6: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[6]}(${data[0]}).csv`,
+      down1Name: data[1],
+      down2Name: data[2],
+      down3Name: data[3],
+      down4Name: data[4],
+      down5Name: data[5],
+      down6Name: data[6],
     })
     console.log(data);
     //console.log(this.state.down5Name)
