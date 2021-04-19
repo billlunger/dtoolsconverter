@@ -8,7 +8,7 @@ class Opportunities extends React.Component {
     loading: true,
     opportunities: [],
     quotes: [],
-    client: 'Loading...',
+    client: 'Resistance is useless',
     quoteName: '',
     quote: [],
     down1: '',
@@ -17,12 +17,24 @@ class Opportunities extends React.Component {
     down4:'',
     down5: '',
     down6: '',
+    down1T: '',
+    down2T: '',
+    down3T: '',
+    down4T: '',
+    down5T: '',
+    down6T: '',
     down1Name:undefined,
     down2Name:undefined,
-    down3Name: undefined,
-    down4Name: undefined,
-    down5Name: undefined,
-    down6Name: undefined,
+    down3Name:undefined,
+    down4Name:undefined,
+    down5Name:undefined,
+    down6Name:undefined,
+    down1NameT:undefined,
+    down2NameT:undefined,
+    down3NameT:undefined,
+    down4NameT:undefined,
+    down5NameT:undefined,
+    down6NameT:undefined,
   };
 
   async listQuotes(sub) {
@@ -36,21 +48,33 @@ class Opportunities extends React.Component {
       down1Name:undefined,
       down2Name:undefined,
       down3Name:undefined,
-      down4Name: undefined,
-      down5Name: undefined,
-      down6Name: undefined,})
+      down4Name:undefined,
+      down5Name:undefined,
+      down6Name:undefined,
+      down1NameT:undefined,
+      down2NameT:undefined,
+      down3NameT:undefined,
+      down4NameT:undefined,
+      down5NameT:undefined,
+      down6NameT:undefined,})
     console.log(data,'Data');
     console.log(sub, 'sub')
   }
 
   async getQuote(quote) {
     console.log(quote,'GetQuote');
-    this.setState({down1Name: 'Converting',
+    this.setState({down1Name: 'Magic in Progress',
     down2Name: undefined,
     down3Name: undefined,
     down4Name: undefined,
     down5Name: undefined,
     down6Name: undefined,
+    down1NameT:undefined,
+    down2NameT:undefined,
+    down3NameT:undefined,
+    down4NameT:undefined,
+    down5NameT:undefined,
+    down6NameT:undefined,
     quoteName: quote.name,
     quote: quote.id,
   })
@@ -59,8 +83,11 @@ class Opportunities extends React.Component {
     const data = await response.json();
     console.log(data,'Single Quote');
     const qName = this.state.quoteName.replace(/[^a-zA-Z0-9-.,& ]/g,'-')
-    this.setState({down1Name: 'Download Signle Quote',
-    down1: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}(${data[0]}).csv`,})
+    this.setState({
+    down1Name: 'Download Single CSV',
+    down1NameT: 'Download Single TXT',
+    down1: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}(${data[0]}).csv`,
+    down1T: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}(${data[0]}).txt`,})
     //console.log(data,'GetQuoteData');
     //console.log(this.state.down5Name)
     
@@ -73,7 +100,13 @@ class Opportunities extends React.Component {
     down3Name: undefined,
     down4Name: undefined,
     down5Name: undefined,
-    Down6Name: undefined,
+    down6Name: undefined,
+    down1NameT:undefined,
+    down2NameT:undefined,
+    down3NameT:undefined,
+    down4NameT:undefined,
+    down5NameT:undefined,
+    down6NameT:undefined,
     quoteName: quote.name,
     quote: quote.id,
   })
@@ -83,17 +116,29 @@ class Opportunities extends React.Component {
     const qName = this.state.quoteName.replace(/[^a-zA-Z0-9-.,& ]/g,'-')
     this.setState({phases: data,
       down1: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[1]}(${data[0]}).csv`,
+      down1T: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[1]}(${data[0]}).txt`,
       down2: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[2]}(${data[0]}).csv`,
+      down2T: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[2]}(${data[0]}).txt`,
       down3: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[3]}(${data[0]}).csv`,
+      down3T: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[3]}(${data[0]}).txt`,
       down4: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[4]}(${data[0]}).csv`,
+      down4T: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[4]}(${data[0]}).txt`,
       down5: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[5]}(${data[0]}).csv`,
+      down5T: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[5]}(${data[0]}).txt`,
       down6: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[6]}(${data[0]}).csv`,
-      down1Name: data[1],
+      down6T: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[6]}(${data[0]}).txt`,
+      down1Name: `${data[1]} CSV`,
+      down1NameT: `${data[1]} TXT`,
       down2Name: data[2],
+      down2NameT: `${data[2]} TXT`,
       down3Name: data[3],
+      down3NameT: `${data[3]} TXT`,
       down4Name: data[4],
+      down4NameT: `${data[4]} TXT`,
       down5Name: data[5],
+      down5NameT: `${data[5]} TXT`,
       down6Name: data[6],
+      down6NameT: `${data[6]} TXT`,
     })
     console.log(data);
     //console.log(this.state.down5Name)
