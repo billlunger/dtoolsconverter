@@ -8,7 +8,7 @@ class Opportunities extends React.Component {
     loading: true,
     opportunities: [],
     quotes: [],
-    client: 'Make it So, Number One',
+    client: 'Assemble and Away Team Number One',
     quoteName: '',
     quote: [],
     down1: '',
@@ -63,7 +63,7 @@ class Opportunities extends React.Component {
 
   async getQuote(quote) {
     console.log(quote,'GetQuote');
-    this.setState({down1Name: 'Assemble and Away Team Number One',
+    this.setState({down1Name: 'Make it So, Number One',
     down2Name: undefined,
     down3Name: undefined,
     down4Name: undefined,
