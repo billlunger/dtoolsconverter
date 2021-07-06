@@ -8,7 +8,7 @@ class Opportunities extends React.Component {
     loading: true,
     opportunities: [],
     quotes: [],
-    client: 'Resistance is useless',
+    client: 'Make it So, Number One',
     quoteName: '',
     quote: [],
     down1: '',
@@ -63,7 +63,7 @@ class Opportunities extends React.Component {
 
   async getQuote(quote) {
     console.log(quote,'GetQuote');
-    this.setState({down1Name: 'Magic in Progress',
+    this.setState({down1Name: 'Assemble and Away Team Number One',
     down2Name: undefined,
     down3Name: undefined,
     down4Name: undefined,
@@ -95,7 +95,7 @@ class Opportunities extends React.Component {
 
   async getPhase(quote) {
     console.log(quote);
-    this.setState({down1Name: 'Converting',
+    this.setState({down1Name: 'Warp Factor 8, Engage',
     down2Name: undefined,
     down3Name: undefined,
     down4Name: undefined,
