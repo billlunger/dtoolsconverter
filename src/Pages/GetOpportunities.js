@@ -8,7 +8,7 @@ class Opportunities extends React.Component {
     loading: true,
     opportunities: [],
     quotes: [],
-    client: 'Assemble and Away Team Number One',
+    client: 'Assemble an Away Team Number One',
     quoteName: '',
     quote: [],
     down1: '',
