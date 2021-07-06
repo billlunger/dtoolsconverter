@@ -63,7 +63,7 @@ class Opportunities extends React.Component {
 
   async getQuote(quote) {
     console.log(quote,'GetQuote');
-    this.setState({down1Name: 'Make it So, Number One',
+    this.setState({down1Name: 'Processing...',
     down2Name: undefined,
     down3Name: undefined,
     down4Name: undefined,
@@ -95,7 +95,7 @@ class Opportunities extends React.Component {
 
   async getPhase(quote) {
     console.log(quote);
-    this.setState({down1Name: 'Warp Factor 8, Engage',
+    this.setState({down1Name: 'Processing...',
     down2Name: undefined,
     down3Name: undefined,
     down4Name: undefined,
