@@ -1,4 +1,5 @@
 import React from 'react';
+//import TextInput from 'react-native';
 import Quotes from './Quotes'
 
 
@@ -35,6 +36,9 @@ class Opportunities extends React.Component {
     down4NameT:undefined,
     down5NameT:undefined,
     down6NameT:undefined,
+    search:'',
+    catalog:false,
+    click:false,
   };
 
   async listQuotes(sub) {
@@ -167,14 +171,57 @@ class Opportunities extends React.Component {
     //console.log(data);
   }
 
+handleInputChange = (event) => {
+  console.log(event)
+  console.log(event.target.value)
+  this.setState({search:event.target.value})
+} 
+showCatalog = (event) => {
+  console.log(event) 
+  this.setState({click:false})
+  this.setState(this.state.catalog === false ?{ catalog:true} : {catalog:false})
+  console.log(this.state.catalog)
+  
+}
+
+  async downloadCatalog() {
+  console.log(this.state.search);
+  this.setState({click:true});
+
+  const url = `https://dtools.hopto.org/api/getCatalog/${this.state.search}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data,'Get Catalog');
+    /*this.setState({
+    down1Name: 'Download Single CSV',
+    down1: `https://dtools.hopto.org/api/download/DT-Export_${data[0]}.csv`})*/
+  }
+
+
+
   render() {
     
     return (
+     
       <div>
+        <div>
+        <button onClick={this.showCatalog.bind(this)} className='btn'>Catalog</button>
+        </div>
+        <div className={this.state.catalog === false ?'noDisp':''}>                     
+            <h3 className='task'>            
+              <div>
+              <h3>Download Catalog</h3>
+              <p>Search for Brand or Scope</p>
+              <input type="text" onChange={this.handleInputChange}></input>
+              <button  onClick={this.downloadCatalog.bind(this)} className='btn'> Get Catalog </button>
+              <a href="https://dtools.hopto.org/api/download/DT-Export.csv"><button className={this.state.click === false ?'noDisp':'btn'}> Download Catalog File </button></a>
+              </div>               
+            </h3>
+          </div>
         {this.state.loading || !this.state.opportunities || !this.state.quotes ? (
         <h2>{this.state.client}</h2> 
         ):(
-        <div >
+        <div className={this.state.catalog === true ?'noDisp':''}>
           <h2>{this.state.client}</h2>
           {this.state.opportunities.map((opp) => 
           <div  key={opp.stageId}>
@@ -223,6 +270,10 @@ class Opportunities extends React.Component {
           )}
           </div>
 
+
+          
+       
+
           <button onClick={this.componentDidMount.bind(this)} className='btn-load'>Load Quotes</button>
           
         </div>
@@ -234,3 +285,21 @@ class Opportunities extends React.Component {
 
 export default Opportunities;
 
+/*
+
+
+    <div >
+                     
+            <h3 className='task'> 
+            
+              <div>
+              <h3>Download Catalog</h3>
+              <p>Search for Brand or Scope</p>
+              <input type="text" onChange={this.handleInputChange}></input>
+              <button  onClick={this.downloadCatalog.bind(this)} className='btn'> Get Catalog </button>
+              <a href="https://dtools.hopto.org/api/download/DT-Export.csv"><button className='btn'> Download Catalog File </button></a>
+              </div>               
+            </h3>
+            
+
+          </div> */
