@@ -39,6 +39,7 @@ class Opportunities extends React.Component {
     search:'',
     catalog:false,
     click:false,
+    catDown: '',
   };
 
   async listQuotes(sub) {
@@ -192,9 +193,9 @@ showCatalog = (event) => {
     const response = await fetch(url);
     const data = await response.json();
     console.log(data,'Get Catalog');
-    /*this.setState({
+    this.setState({
     down1Name: 'Download Single CSV',
-    down1: `https://dtools.hopto.org/api/download/DT-Export_${data[0]}.csv`})*/
+    catDown: `https://dtools.hopto.org/api/download/DT-Export_${data[0]}.csv`})
   }
 
 
@@ -214,7 +215,7 @@ showCatalog = (event) => {
               <p>Search for Brand or Scope</p>
               <input type="text" onChange={this.handleInputChange}></input>
               <button  onClick={this.downloadCatalog.bind(this)} className='btn'> Get Catalog </button>
-              <a href="https://dtools.hopto.org/api/download/DT-Export.csv"><button className={this.state.click === false ?'noDisp':'btn'}> Download Catalog File </button></a>
+              <a href={this.state.catDown}><button className={this.state.click === false ?'noDisp':'btn'}> Download Catalog File </button></a>
               </div>               
             </h3>
           </div>
