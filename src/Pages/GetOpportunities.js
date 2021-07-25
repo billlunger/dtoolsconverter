@@ -36,7 +36,7 @@ class Opportunities extends React.Component {
     down4NameT:undefined,
     down5NameT:undefined,
     down6NameT:undefined,
-    search:'',
+    search:'scope',
     catalog:false,
     click:false,
     catDown: '',
