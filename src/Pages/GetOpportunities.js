@@ -43,7 +43,7 @@ class Opportunities extends React.Component {
   };
 
   async listQuotes(sub) {
-    const url = `https://dtools.hopto.org/api/getOpps/${sub.id}`;
+    const url = `https://dtools.billlunger.com/api/getOpps/${sub.id}`;
     const response = await fetch(url);
     const data = await response.json();
     this.setState({quotes: data,
@@ -83,7 +83,7 @@ class Opportunities extends React.Component {
     quoteName: quote.name,
     quote: quote.id,
   })
-    const url = `https://dtools.hopto.org/api/getQuote/${quote.id}`;
+    const url = `https://dtools.billlunger.com/api/getQuote/${quote.id}`;
     const response = await fetch(url);
     const data = await response.json();
     console.log(data,'Single Quote');
@@ -91,8 +91,8 @@ class Opportunities extends React.Component {
     this.setState({
     down1Name: 'Download Single CSV',
     down1NameT: 'Download Single TXT',
-    down1: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}(${data[0]}).csv`,
-    down1T: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}(${data[0]}).txt`,})
+    down1: `https://dtools.billlunger.com/api/download/${this.state.client}-${qName}(${data[0]}).csv`,
+    down1T: `https://dtools.billlunger.com/api/download/${this.state.client}-${qName}(${data[0]}).txt`,})
     //console.log(data,'GetQuoteData');
     //console.log(this.state.down5Name)
     
@@ -115,23 +115,23 @@ class Opportunities extends React.Component {
     quoteName: quote.name,
     quote: quote.id,
   })
-    const url = `https://dtools.hopto.org/api/getPhases/${quote.id}`;
+    const url = `https://dtools.billlunger.com/api/getPhases/${quote.id}`;
     const response = await fetch(url);
     const data = await response.json();
     const qName = this.state.quoteName.replace(/[^a-zA-Z0-9-.,& ]/g,'-')
     this.setState({phases: data,
-      down1: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[1]}(${data[0]}).csv`,
-      down1T: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[1]}(${data[0]}).txt`,
-      down2: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[2]}(${data[0]}).csv`,
-      down2T: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[2]}(${data[0]}).txt`,
-      down3: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[3]}(${data[0]}).csv`,
-      down3T: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[3]}(${data[0]}).txt`,
-      down4: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[4]}(${data[0]}).csv`,
-      down4T: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[4]}(${data[0]}).txt`,
-      down5: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[5]}(${data[0]}).csv`,
-      down5T: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[5]}(${data[0]}).txt`,
-      down6: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[6]}(${data[0]}).csv`,
-      down6T: `https://dtools.hopto.org/api/download/${this.state.client}-${qName}-${data[6]}(${data[0]}).txt`,
+      down1: `https://dtools.billlunger.com/api/download/${this.state.client}-${qName}-${data[1]}(${data[0]}).csv`,
+      down1T: `https://dtools.billlunger.com/api/download/${this.state.client}-${qName}-${data[1]}(${data[0]}).txt`,
+      down2: `https://dtools.billlunger.com/api/download/${this.state.client}-${qName}-${data[2]}(${data[0]}).csv`,
+      down2T: `https://dtools.billlunger.com/api/download/${this.state.client}-${qName}-${data[2]}(${data[0]}).txt`,
+      down3: `https://dtools.billlunger.com/api/download/${this.state.client}-${qName}-${data[3]}(${data[0]}).csv`,
+      down3T: `https://dtools.billlunger.com/api/download/${this.state.client}-${qName}-${data[3]}(${data[0]}).txt`,
+      down4: `https://dtools.billlunger.com/api/download/${this.state.client}-${qName}-${data[4]}(${data[0]}).csv`,
+      down4T: `https://dtools.billlunger.com/api/download/${this.state.client}-${qName}-${data[4]}(${data[0]}).txt`,
+      down5: `https://dtools.billlunger.com/api/download/${this.state.client}-${qName}-${data[5]}(${data[0]}).csv`,
+      down5T: `https://dtools.billlunger.com/api/download/${this.state.client}-${qName}-${data[5]}(${data[0]}).txt`,
+      down6: `https://dtools.billlunger.com/api/download/${this.state.client}-${qName}-${data[6]}(${data[0]}).csv`,
+      down6T: `https://dtools.billlunger.com/api/download/${this.state.client}-${qName}-${data[6]}(${data[0]}).txt`,
       down1Name: `${data[1]} CSV`,
       down1NameT: `${data[1]} TXT`,
       down2Name: data[2],
@@ -150,7 +150,7 @@ class Opportunities extends React.Component {
   }
 
   async componentDidMount() {
-    const url = "https://dtools.hopto.org/api/opportunities";
+    const url = "https://dtools.billlunger.com/api/opportunities";
     const getCreds = ""
     try{
       console.log('Trying to Get Opportunities')
@@ -189,13 +189,13 @@ showCatalog = (event) => {
   console.log(this.state.search);
   this.setState({click:true});
 
-  const url = `https://dtools.hopto.org/api/getCatalog/${this.state.search}`;
+  const url = `https://dtools.billlunger.com/api/getCatalog/${this.state.search}`;
     const response = await fetch(url);
     const data = await response.json();
     console.log(data,'Get Catalog');
     this.setState({
     down1Name: 'Download Single CSV',
-    catDown: `https://dtools.hopto.org/api/download/DT-Export_${data[0]}.csv`})
+    catDown: `https://dtools.billlunger.com/api/download/DT-Export_${data[0]}.csv`})
   }
 
 
@@ -298,7 +298,7 @@ export default Opportunities;
               <p>Search for Brand or Scope</p>
               <input type="text" onChange={this.handleInputChange}></input>
               <button  onClick={this.downloadCatalog.bind(this)} className='btn'> Get Catalog </button>
-              <a href="https://dtools.hopto.org/api/download/DT-Export.csv"><button className='btn'> Download Catalog File </button></a>
+              <a href="https://dtools.billlunger.com/api/download/DT-Export.csv"><button className='btn'> Download Catalog File </button></a>
               </div>               
             </h3>
             
